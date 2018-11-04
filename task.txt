@@ -1,0 +1,59 @@
+Web service для готеля
+10 номерів
+
+- створення бронювань (CRUD)
+	PUT:
+		дата (from, to)
+		номер (id)
+		ім'я (name of person)
+	/booking
+
+	GET:
+		/booking - список всіх бронювань
+
+	DELETE:
+		/booking/{idBook} - зняття бронювання
+
+	UPDATE:
+		/booking/{idBook}
+		з параметрами PUT
+
+- поселення (CRU)
+	PUT:
+		дата (from, to) (dateFrom, dateTo)
+		номер (id)
+		ім'я (name, second name, country, adress, phone)
+	/checkIn
+
+	GET:
+	/checkIn - всі поселення на даний момент
+
+	UPDATE:
+		дата (from, to)
+		номер (id)
+		ім'я (name, second name, country, address, phone)
+	/checkIn/{idCheckIn} - (idCheckIn - попередній checkIn)
+
+- виселення (checkOut)
+	PUT:
+		idCheckIn
+		dateTo (дата виселення)
+
+	/checkOut
+
+
+- статистика (statistic)
+
+	GET:
+		/statistic/getRooms?dateFrom=&dateTo=&type=[FREE, BOOKED, CHECKED_IN]
+
+
+
+
+1. Створити swagger file по endpoints
+2. Імплементація endpoints using spring boot/maven/Jackson (Json)/Hibernate/HSQL DB or H2
+	2.1 створення бронювань:
+		а. Володя: camel
+		б. Макс: spring MVC
+3. Заповнення тестових даних
+
