@@ -16,7 +16,6 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.Date;
 
-@Builder
 @Entity
 @Data
 @Table(name = "reception")

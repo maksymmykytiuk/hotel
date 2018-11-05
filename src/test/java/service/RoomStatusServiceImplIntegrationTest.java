@@ -35,6 +35,8 @@ public class RoomStatusServiceImplIntegrationTest {
         }
     }
 
+    private RoomStatus rs;
+
     @Autowired
     private RoomStatusService roomStatusService;
 
@@ -43,10 +45,12 @@ public class RoomStatusServiceImplIntegrationTest {
 
     @Before
     public void setUp() {
+        rs = new RoomStatus();
+        rs.setId(1L);
+        rs.setName("FREE");
+
         Mockito.when(roomStatusDao.getOne(1L))
-                .thenReturn(RoomStatus.builder()
-                        .id(1L)
-                        .name("FREE").build());
+                .thenReturn(rs);
     }
 
     @Test
@@ -54,8 +58,6 @@ public class RoomStatusServiceImplIntegrationTest {
         RoomStatus roomStatus = roomStatusDao.getOne(1L);
 
         assertThat(roomStatus)
-                .isEqualTo(RoomStatus.builder()
-                        .id(1L)
-                        .name("FREE").build());
+                .isEqualTo(rs);
     }
 }

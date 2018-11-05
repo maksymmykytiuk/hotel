@@ -8,7 +8,6 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.Set;
 
-@Builder
 @Entity
 @Data
 @Table(name = "room_status")

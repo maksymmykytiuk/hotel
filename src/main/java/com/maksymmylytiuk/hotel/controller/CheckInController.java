@@ -65,13 +65,7 @@ public class CheckInController {
         try {
             Reception reception = objectMapper.readValue(json, Reception.class);
 
-            if (roomStatusService.roomIsFreeInPeriodAndGuest(reception.getRoom().getId(),
-                    reception.getFrom(),
-                    reception.getTo(),
-                    reception.getGuest()))
-                receptionService.update(idCheckIn, reception);
-            else
-                return new ResponseEntity(HttpStatus.BAD_REQUEST);
+            receptionService.update(idCheckIn, reception);
         } catch (IOException e) {
             e.printStackTrace();
         }

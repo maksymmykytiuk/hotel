@@ -46,16 +46,24 @@ public class RoomServiceImplIntegrationTest {
     @MockBean
     private RoomDao roomDao;
 
+    private Room room;
+    private RoomType roomType;
+
     @Before
     public void setUp() {
+
+        roomType = new RoomType();
+        roomType.setId(1L);
+        roomType.setName("ROOM");
+
+        room = new Room();
+        room.setId(1L);
+        room.setFloor(5);
+        room.setPrice(BigDecimal.TEN);
+        room.setRoomType(roomType);
+
         Mockito.when(roomDao.getOne(1L))
-                .thenReturn(Room.builder()
-                        .id(1L)
-                        .floor(5)
-                        .price(BigDecimal.TEN)
-                        .roomType(RoomType.builder()
-                                .id(1L)
-                                .name("ROOM").build()).build());
+                .thenReturn(room);
     }
 
     @Test
@@ -63,12 +71,6 @@ public class RoomServiceImplIntegrationTest {
         Room room = roomService.getById(1L);
 
         assertThat(room)
-                .isEqualTo(Room.builder()
-                        .id(1L)
-                        .floor(5)
-                        .price(BigDecimal.TEN)
-                        .roomType(RoomType.builder()
-                                .id(1L)
-                                .name("ROOM").build()).build());
+                .isEqualTo(room);
     }
 }

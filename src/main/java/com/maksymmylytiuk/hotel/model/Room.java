@@ -14,7 +14,6 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Set;
 
-@Builder
 @Entity
 @Data
 @Table(name = "room")
