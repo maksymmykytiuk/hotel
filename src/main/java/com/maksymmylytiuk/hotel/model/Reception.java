@@ -10,11 +10,13 @@ import com.maksymmylytiuk.hotel.util.serializer.DateSerializer;
 import com.maksymmylytiuk.hotel.util.serializer.GuestSerializer;
 import com.maksymmylytiuk.hotel.util.serializer.RoomSerializer;
 import com.maksymmylytiuk.hotel.util.serializer.RoomStatusSerializer;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
 
+@Builder
 @Entity
 @Data
 @Table(name = "reception")

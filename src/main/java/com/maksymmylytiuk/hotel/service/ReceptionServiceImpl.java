@@ -19,9 +19,6 @@ public class ReceptionServiceImpl implements ReceptionService {
     @Autowired
     ReceptionDao receptionDao;
 
-    @PersistenceContext
-    private EntityManager em;
-
     @Override
     public void save(Reception reception) {
         receptionDao.save(reception);
@@ -39,7 +36,7 @@ public class ReceptionServiceImpl implements ReceptionService {
 
     @Override
     public List<Reception> getAllByStatusAndPeriod(RoomStatus status, Date from, Date to) {
-        return receptionDao.test(status.getId(), from, to);
+        return receptionDao.getAllByStatusAndPeriod(status.getId(), from, to);
     }
 
     @Override

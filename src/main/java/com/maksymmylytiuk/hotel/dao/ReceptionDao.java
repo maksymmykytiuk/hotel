@@ -17,7 +17,7 @@ public interface ReceptionDao extends JpaRepository<Reception, Long> {
     List<Reception> findAllByRoomStatusId(Long id);
 
     @Query("select r from Reception r where r.roomStatus.id = ?1 and r.from > ?2 and r.to < ?3")
-    List<Reception> test(Long status, Date from, Date to);
+    List<Reception> getAllByStatusAndPeriod(Long status, Date from, Date to);
 
     @Query("select r from Room r where r.id not in " +
             "(select r.room.id from Reception r where r.roomStatus.id = 1 or r.roomStatus.id = 2 and r.from > ?1 and r.to < ?2)")

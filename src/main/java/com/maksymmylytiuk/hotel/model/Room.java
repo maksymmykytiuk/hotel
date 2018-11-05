@@ -7,12 +7,14 @@ import com.maksymmylytiuk.hotel.util.deserializer.GuestDeserializer;
 import com.maksymmylytiuk.hotel.util.deserializer.RoomTypeDeserializer;
 import com.maksymmylytiuk.hotel.util.serializer.GuestSerializer;
 import com.maksymmylytiuk.hotel.util.serializer.RoomTypeSerializer;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Set;
 
+@Builder
 @Entity
 @Data
 @Table(name = "room")
