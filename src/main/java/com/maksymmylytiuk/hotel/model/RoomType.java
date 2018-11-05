@@ -1,11 +1,13 @@
 package com.maksymmylytiuk.hotel.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Set;
 
+@Builder
 @Entity
 @Data
 @Table(name = "room_type")
